@@ -3,3 +3,11 @@
 //
 
 #include "chessPiece.h"
+
+ string &chessPiece::getName() {
+    return Name;
+}
+
+int &chessPiece::getColour(){
+    return Colour;
+}
