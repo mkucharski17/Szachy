@@ -6,20 +6,18 @@
 #define LAB3_CHESSBOARD_H
 
 #include<string>
+#include "Field.h"
 
 using namespace std;
 
-struct field{
-    bool Empty = false;
-    string pieceName;
-};
-
 
 class chessBoard {
-    field board[8][8];
+    Field board[8][8];
 
 public:
     chessBoard();
+    Field& getBoard(int X ,  int Y);
+
 };
 
 
