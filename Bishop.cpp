@@ -4,8 +4,7 @@
 
 #include "Bishop.h"
 
-Bishop::Bishop(int colour): {
+Bishop::Bishop(int colour) {
     Name = "Bishop";
     Colour  = colour;
-
 }
