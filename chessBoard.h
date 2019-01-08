@@ -7,8 +7,13 @@
 
 #include<string>
 #include "Field.h"
+#include <vector>
 
 using namespace std;
+struct vertexes {
+    int X;
+    int Y;
+};
 
 
 class chessBoard {
@@ -19,11 +24,13 @@ class chessBoard {
     void setBishops();
     void setRooks();
     void setKnights();
+    vector<vertexes> checkPawnMove(chessBoard *boardPtr, int X, int Y);
 
 public:
     chessBoard();
     Field& getBoard(int X ,  int Y);
     void setBoard();
+
 
 
 
