@@ -4,6 +4,7 @@
 
 #include "chessPiece.h"
 
+
  string &chessPiece::getName() {
     return Name;
 }
