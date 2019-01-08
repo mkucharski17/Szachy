@@ -24,12 +24,19 @@ class chessBoard {
     void setBishops();
     void setRooks();
     void setKnights();
-    vector<vertexes> checkPawnMove(chessBoard *boardPtr, int X, int Y);
+    vector<vertexes> checkMove(int x, int y);
+    void checkPawnMove(chessBoard *boardPtr,vector<vertexes>& possibilities, int x, int y);
+    void checkKnightMove(vector<vertexes> &possibilities, int x, int y);
+
+
+
 
 public:
     chessBoard();
     Field& getBoard(int X ,  int Y);
     void setBoard();
+    void move(vertexes from, vertexes to);
+    void show();
 
 
 

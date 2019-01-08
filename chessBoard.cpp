@@ -91,12 +91,38 @@ void chessBoard::setBoard() {
     setKnights();
 }
 
-vector<vertexes> chessBoard::checkPawnMove(chessBoard *boardPtr, int x, int y) {
+void chessBoard::show() {
+    for(int i = 7 ; i >= 0 ; i--) {
+        for (int j = 0; j < 8; j++) {
+            if(board[i][j].getChessMan() != nullptr){
+                cout << board[i][j].getChessMan()->getName();
+                cout << board[i][j].getChessMan()->getColour() << "    ";
+            }
+            else cout<<"empty    ";
+
+        }
+        cout<<endl;
+    }
+}
+
+void chessBoard::move(vertexes from, vertexes to) {
+    board[to.X][to.Y].setChessMan(board[from.X][from.Y].getChessMan());
+    board[from.X][from.Y].setChessMan(nullptr);
+}
+
+vector<vertexes> chessBoard::checkMove(int x, int y) {
     vector<vertexes> possibilities;
+    if (board[x][y].getChessMan()->getName() == "Pawn")
+        checkKnightMove(possibilities, x, y);
+
+
+}
+
+void chessBoard::checkPawnMove(chessBoard *boardPtr, vector<vertexes> &possibilities, int x, int y) {
     vertexes temp;
     int shift;
 
-    if (boardPtr->getBoard(x, y).getChessMan()->getColour() == white)
+    if (board[x][y].getChessMan()->getColour() == white)
         shift = 1;
 
     else shift = -1;
@@ -104,15 +130,14 @@ vector<vertexes> chessBoard::checkPawnMove(chessBoard *boardPtr, int x, int y) {
 
     //classic move
     if ((y < 7 && shift == 1) || (y > 0 && shift == -1))
-        if(boardPtr->getBoard(x, y + shift).getChessMan() == nullptr) {
+        if (board[x][y + shift].getChessMan() == nullptr) {
             temp.X = x;
             temp.Y = y + shift;
             possibilities.push_back(temp);
-    }
+        }
     //double move
     if ((y == 1 && shift == 1) || (y == 6 && shift == -1))
-        if(boardPtr->getBoard(x, y + 2 * shift).getChessMan() == nullptr &&
-            boardPtr->getBoard(x, y + shift).getChessMan() == nullptr && x == 1) {
+        if (board[x][y + 2 * shift].getChessMan() == nullptr && board[x][y + shift].getChessMan() == nullptr) {
 
             temp.X = x;
             temp.Y = y + 2 * shift;
@@ -120,21 +145,27 @@ vector<vertexes> chessBoard::checkPawnMove(chessBoard *boardPtr, int x, int y) {
         }
     //right attack
     if ((x < 7 && y < 7 && shift == 1) || (x > 0 && y > 0 && shift == -1))
-        if (boardPtr->getBoard(x + shift, y + shift).getChessMan()->getColour() !=
-            getBoard(x, y).getChessMan()->getColour()) {
+        if (board[x + shift][y + shift].getChessMan() != nullptr &&
+            board[x + shift][y + shift].getChessMan()->getColour() != board[x][y].getChessMan()->getColour()) {
 
             temp.X = x + shift;
             temp.Y = y + shift;
             possibilities.push_back(temp);
         }
-    //lef attack
-    if ((x > 0 && y < 7 && shift == 1) ||(x < 7 && y > 0 && shift == -1 ) )
-        if(boardPtr->getBoard(x - shift, y + shift).getChessMan()->getColour() != getBoard(x,y).getChessMan()->getColour()) {
-        temp.X = x - 1;
-        temp.Y = y + 1;
-        possibilities.push_back(temp);
-    }
+    //left attack
+    if ((x > 0 && y < 7 && shift == 1) || (x < 7 && y > 0 && shift == -1))
+        if (board[x - shift][y + shift].getChessMan() != nullptr &&
+            board[x - shift][y + shift].getChessMan()->getColour() != board[x][y].getChessMan()->getColour()) {
 
-    return possibilities;
+            temp.X = x - 1;
+            temp.Y = y + 1;
+            possibilities.push_back(temp);
+        }
+
+}
+
+void chessBoard::checkKnightMove( vector<vertexes> &possibilities, int x, int y) {
+    vertexes temp;
+
 
 }
