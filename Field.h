@@ -6,6 +6,7 @@
 #define LAB3_FIELD_H
 
 #include <string>
+#include "chessPiece.h"
 
 using namespace std;
 
@@ -13,10 +14,11 @@ using namespace std;
 
 
 class Field {
-    string chesPieceName = "empty";
+    chessPiece *chessMan = nullptr;
 
 public:
-    string & getChessPieceName();
+    chessPiece* getChessMan();
+    void setChessMan(chessPiece* sth );
 
 };
 
