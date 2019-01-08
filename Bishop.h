@@ -13,6 +13,7 @@ class Bishop: public chessPiece {
 public:
     Bishop(int colour);
 
+
 };
 
 
