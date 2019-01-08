@@ -16,6 +16,9 @@ enum colours {
 Test::Test() {
     creatingBoardTest();
     settingBoardTest();
+    movingTest();
+
+    cout<<"so everything is ok";
 }
 
 void Test::creatingBoardTest() {
@@ -29,7 +32,7 @@ void Test::creatingBoardTest() {
             else cout << "error in creating board";
 
         }
-    cout << "creating board is ok"<<endl;
+    cout << "CREATING board is ok"<<endl;
 }
 
 
@@ -43,8 +46,7 @@ void Test::settingBoardTest() {
     settingTwoPiecesTest(ch,"Bishop",2,3);
     settingTwoPiecesTest(ch,"Knight",1,5);
     settingTwoPiecesTest(ch,"Rook",0,7);
-
-    cout<<"so everything is ok";
+    cout<<"so SETTING is OK"<<endl;
 }
 
 void Test::settingEmptyFieldsTest(chessBoard *testPtr) {
@@ -56,6 +58,7 @@ void Test::settingEmptyFieldsTest(chessBoard *testPtr) {
         }
     cout << "empty fields setting is ok" << endl;
 }
+
 
 void Test::settingPawnsTest(chessBoard *testPtr) {
 
@@ -81,6 +84,10 @@ void Test::settingPawnsTest(chessBoard *testPtr) {
     cout << "Pawn setting is ok"<<endl;
 }
 
+/*checking start position for pieces which are one of each colour
+ * Y is second vertex of position for chess piece
+ */
+
 void Test::settingOnePiecesTest(chessBoard *testPtr, string Name, int Y) {
 
     for (int i = 0; i < 8; i += 7) {
@@ -103,7 +110,10 @@ void Test::settingOnePiecesTest(chessBoard *testPtr, string Name, int Y) {
     }
     cout<<Name<<"setting is ok"<< endl;
 }
-
+/*checking start position for pieces which are two of each colour
+ * difference is difference between two chess pieces of each colour
+ * first is first number from vertexes
+ */
 void Test::settingTwoPiecesTest(chessBoard *testPtr, string Name, int first, int difference) {
 
     for (int i = 0; i < 8; i += 7) {
@@ -130,6 +140,25 @@ void Test::settingTwoPiecesTest(chessBoard *testPtr, string Name, int first, int
     cout <<Name<<"  setting is ok"<<endl;
 }
 
+
+void Test::movingTest() {
+    chessBoard ch;
+    ch.setBoard();
+    vertexes from,to;
+    from.X = 0;
+    from.Y = 0;
+    to.X = 4;
+    to.Y = 4;
+    ch.move(from,to);
+    if(ch.getBoard(from.X,from.Y).getChessMan() != nullptr)
+        cout<<"problem with field which chespiece go from";
+
+    if(ch.getBoard(to.X,to.Y).getChessMan()->getName() != "Rook" &&
+    ch.getBoard(to.X,to.Y).getChessMan()->getColour() != white)
+        cout<<"problem with field which chespiece go to";
+
+    cout<<"MOVING is  ok"<<endl;
+}
 
 
 

@@ -16,6 +16,7 @@ class Test {
     void settingTwoPiecesTest(chessBoard* testPtr, string Name, int first, int difference);
     void settingEmptyFieldsTest(chessBoard* testPtr);
     void settingBoardTest();
+    void movingTest();
 
 public:
     Test();
