@@ -6,10 +6,16 @@
 #define LAB3_TEST_H
 
 
+#include "chessBoard.h"
+
 class Test {
 
-
     void creatingBoardTest();
+    void settingPawnsTest(chessBoard* testPtr);
+    void settingOnePiecesTest(chessBoard* testPtr, string Name, int Y);
+    void settingTwoPiecesTest(chessBoard* testPtr, string Name, int first, int difference);
+    void settingEmptyFieldsTest(chessBoard* testPtr);
+    void settingBoardTest();
 
 public:
     Test();
