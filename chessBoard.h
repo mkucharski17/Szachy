@@ -18,15 +18,13 @@ struct vertexes {
 
 class chessBoard {
     Field board[8][8];
-    bool inBoard(vertexes v);
     void setPawns();
     void setKings();
     void setQueens();
     void setBishops();
     void setRooks();
     void setKnights();
-    void checkPawnMove(vector<vertexes>& possibilities, int x, int y);
-    void checkKnightMove(vector<vertexes> &possibilities, int x, int y);
+
 
 
 
@@ -37,11 +35,6 @@ public:
     void setBoard();
     void move(vertexes from, vertexes to);
     void show();
-    vector<vertexes> checkMove(int x, int y);
-
-
-
-
 };
 
 
