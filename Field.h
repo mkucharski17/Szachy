@@ -19,6 +19,7 @@ class Field {
 public:
     chessPiece* getChessMan();
     void setChessMan(chessPiece* sth );
+    bool isEmpty();
 
 };
 

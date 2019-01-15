@@ -12,3 +12,10 @@ chessPiece* Field::getChessMan() {
 void Field::setChessMan(chessPiece *sth) {
     chessMan = sth;
 }
+
+bool Field::isEmpty() {
+        if(chessMan == nullptr)
+            return true;
+
+        return false;
+}
