@@ -107,3 +107,23 @@ void chessBoard::move(vertexes from, vertexes to) {
     board[from.X][from.Y].setChessMan(nullptr);
 }
 
+chessBoard& chessBoard::operator=(chessBoard &primary) {
+    for (int i = 7; i >= 0; i--) {
+        for (int j = 0; j < 8; j++) {
+            board[j][i].setChessMan(primary.getBoard(j,i).getChessMan());
+        }
+    }
+    return *this;
+}
+
+void chessBoard::load(chessBoard &source) {
+    *this = source;
+}
+
+
+
+
+
+
+
+
