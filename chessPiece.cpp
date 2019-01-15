@@ -5,10 +5,10 @@
 #include "chessPiece.h"
 
 
- string &chessPiece::getName() {
+string &chessPiece::getName() {
     return Name;
 }
 
-int &chessPiece::getColour(){
+int &chessPiece::getColour() {
     return Colour;
 }
