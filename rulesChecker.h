@@ -10,30 +10,47 @@
 
 class rulesChecker {
 
-    chessBoard*  Board;
-    void checkPawnMove(vector<vertexes>& possibilities, int x, int y);
+    chessBoard *Board;
+
+    void checkPawnMove(vector<vertexes> &possibilities, int x, int y);
+
     void checkKnightMove(vector<vertexes> &possibilities, int x, int y);
+
     void checkKingMove(vector<vertexes> &possibilities, int x, int y);
+
     void checkRookMove(vector<vertexes> &possibilities, int x, int y);
+
     void checkBishopMove(vector<vertexes> &possibilities, int x, int y);
+
     void checkQueenMove(vector<vertexes> &possibilities, int x, int y);
-    bool inBoard(vertexes v);
-    bool isAttack(vertexes v, int colour);
+
     void checkUp(vector<vertexes> &possibilities, int x, int y);
+
     void checkDown(vector<vertexes> &possibilities, int x, int y);
+
     void checkRight(vector<vertexes> &possibilities, int x, int y);
+
     void checkLeft(vector<vertexes> &possibilities, int x, int y);
+
     void checkUpLeft(vector<vertexes> &possibilities, int x, int y);
+
     void checkUpRight(vector<vertexes> &possibilities, int x, int y);
+
     void checkDownLeft(vector<vertexes> &possibilities, int x, int y);
+
     void checkDownRight(vector<vertexes> &possibilities, int x, int y);
+
     bool canAddToPossibilities(vertexes temp);
+
+    bool inBoard(vertexes v);
+
+    bool isAttack(vertexes v, int colour);
 
 
 public:
-
     rulesChecker();
-    vector<vertexes> checkMove(int x, int y);
+
+    vector<vertexes> checkMove(int x, int y, chessBoard * source);
 
 };
 
