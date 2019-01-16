@@ -8,6 +8,10 @@
 
 #include "chessBoard.h"
 
+/*
+ * rules checker is class which knows every rules of the game.
+ * main function is to check if given move is possible
+ * */
 class rulesChecker {
 
     chessBoard *Board;
@@ -43,11 +47,10 @@ class rulesChecker {
     bool canAddToPossibilities(vertexes temp);
 
 
-
 public:
     rulesChecker();
 
-    vector<vertexes> checkMove(int x, int y, chessBoard * source);
+    vector<vertexes> checkMove(int x, int y, chessBoard *source);
 
 };
 

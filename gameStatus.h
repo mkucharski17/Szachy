@@ -8,7 +8,9 @@
 
 #include "chessBoard.h"
 #include "rulesChecker.h"
-
+/*
+ * use following class to checking what is the status of the game
+ * */
 class gameStatus {
 
     chessBoard* board;
@@ -18,6 +20,7 @@ public:
     gameStatus();
     bool isCheck(int colour);
     bool isPat();
+    void loadBoard(chessBoard *source);
 
 };
 

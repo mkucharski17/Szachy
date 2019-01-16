@@ -24,6 +24,10 @@ class Test {
 
     void movingTest();
 
+    void checkMoveTest();
+
+    void checkTest();
+
 public:
     Test();
 

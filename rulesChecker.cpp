@@ -34,7 +34,6 @@ vector<vertexes> rulesChecker::checkMove(int x, int y, chessBoard *source) {
     } else if (Board->getBoard(x, y).getChessMan()->getName() == "Queen") {
         checkQueenMove(possibilities, x, y);
     }
-
     return possibilities;
 }
 
@@ -86,8 +85,8 @@ void rulesChecker::checkPawnMove(vector<vertexes> &possibilities, int x, int y) 
             Board->getBoard(x - shift, y + shift).getChessMan()->getColour() !=
             Board->getBoard(x, y).getChessMan()->getColour()) {
 
-            temp.X = x - 1;
-            temp.Y = y + 1;
+            temp.X = x - shift;
+            temp.Y = y + shift;
             possibilities.push_back(temp);
         }
 }
@@ -98,7 +97,7 @@ void rulesChecker::checkKnightMove(vector<vertexes> &possibilities, int x, int y
         for (int j = -1; j < 2; j += 2) {
             temp.X = x + i;
             temp.Y = y + j;
-            if (Board->inBoard(temp))
+            if (canAddToPossibilities(temp))
                 possibilities.push_back(temp);
         }
 
@@ -106,7 +105,7 @@ void rulesChecker::checkKnightMove(vector<vertexes> &possibilities, int x, int y
         for (int j = -2; j < 3; j += 4) {
             temp.X = x + i;
             temp.Y = y + j;
-            if (Board->inBoard(temp))
+            if (canAddToPossibilities(temp))
                 possibilities.push_back(temp);
 
         }
@@ -122,7 +121,7 @@ void rulesChecker::checkKingMove(vector<vertexes> &possibilities, int x, int y) 
                 temp.X = x + i;
                 temp.Y = y + j;
 
-                if (Board->inBoard(temp))
+                if (canAddToPossibilities(temp))
                     possibilities.push_back(temp);
             }
 
@@ -161,11 +160,15 @@ void rulesChecker::checkQueenMove(vector<vertexes> &possibilities, int x, int y)
  * */
 bool rulesChecker::canAddToPossibilities(vertexes temp) {
 
-    if (Board->getBoard(temp.X, temp.Y).getChessMan() == nullptr)
-        return true;
-    else {
-        if (Board->isAttack(temp, Board->getBoard(temp.X, temp.Y).getChessMan()->getColour()))
+    if (Board->inBoard(temp)) {
+
+        if (Board->getBoard(temp.X, temp.Y).isEmpty())
             return true;
+
+        else {
+            if (Board->isAttack(temp, Board->getBoard(temp.X, temp.Y).getChessMan()->getColour()))
+                return true;
+        }
     }
     return false;
 }

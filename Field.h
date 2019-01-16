@@ -10,9 +10,9 @@
 
 using namespace std;
 
-
-
-
+/*
+ * class Field represent one from 64 fields which are on the chessboard
+ * */
 class Field {
     chessPiece *chessMan = nullptr;
 

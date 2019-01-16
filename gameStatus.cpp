@@ -9,21 +9,30 @@ gameStatus::gameStatus() {
     judge = new rulesChecker();
     board = new chessBoard();
     board->setBoard();
+
 }
 
 bool gameStatus::isCheck(int colour) {
     vector<vertexes> possibilities;
     vector<vertexes>::iterator it;
 
+
+    board->show();
+
     for (int i = 7; i >= 0; i--) {
         for (int j = 0; j < 8; j++) {
-            if (board->getBoard(j, i).isEmpty() || board->getBoard(j, i).getChessMan()->getColour() == colour)
+
+            if (board->getBoard(j, i).isEmpty() || board->getBoard(j, i).getChessMan()->getColour() != colour) {
                 continue;
-            else {
+
+            } else {
+
                 possibilities = judge->checkMove(j, i, board);
-                for (it = possibilities.begin(); it - 1 != possibilities.end(); it++) {
-                    if (board->getBoard(it->X, it->Y).getChessMan()->getName() == "King")
-                        return true;
+
+                for (it = possibilities.begin(); it != possibilities.end(); ++it) {
+                    if (!board->getBoard(it->X, it->Y).isEmpty())
+                        if (board->getBoard(it->X, it->Y).getChessMan()->getName() == "King")
+                            return true;
 
                 }
             }
@@ -47,3 +56,8 @@ bool gameStatus::isPat() {
     }
     return true;
 }
+
+void gameStatus::loadBoard(chessBoard *source) {
+    board = source;
+}
+
