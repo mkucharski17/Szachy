@@ -14,7 +14,8 @@ struct vertexes {
     int X;
     int Y;
 };
-
+/*following class represents chessboard
+ * */
 class chessBoard {
     Field board[8][8];
 
@@ -42,10 +43,7 @@ public:
 
     void show();
 
-    void load(chessBoard& source);
-
     chessBoard& operator=(chessBoard& primaryBoard);
-
 
     bool inBoard(vertexes v);
 

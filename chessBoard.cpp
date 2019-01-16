@@ -36,21 +36,17 @@ void chessBoard::setPawns() {
 }
 
 void chessBoard::setKings() {
-    for (int i = 0; i < 8; i++) {
         chessPiece *ch = new King(white);
         board[4][0].setChessMan(ch);
         ch = new King(black);
         board[4][7].setChessMan(ch);
-    }
 }
 
 void chessBoard::setQueens() {
-    for (int i = 0; i < 8; i++) {
         chessPiece *ch = new Queen(white);
         board[3][0].setChessMan(ch);
         ch = new Queen(black);
         board[3][7].setChessMan(ch);
-    }
 }
 
 void chessBoard::setBishops() {
@@ -115,11 +111,6 @@ chessBoard& chessBoard::operator=(chessBoard &primary) {
     }
     return *this;
 }
-
-void chessBoard::load(chessBoard &source) {
-    *this = source;
-}
-
 
 /*
  * Method which check if vertexes are in chessboard
