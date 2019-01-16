@@ -16,9 +16,6 @@ bool gameStatus::isCheck(int colour) {
     vector<vertexes> possibilities;
     vector<vertexes>::iterator it;
 
-
-    board->show();
-
     for (int i = 7; i >= 0; i--) {
         for (int j = 0; j < 8; j++) {
 
