@@ -36,17 +36,17 @@ void chessBoard::setPawns() {
 }
 
 void chessBoard::setKings() {
-        chessPiece *ch = new King(white);
-        board[4][0].setChessMan(ch);
-        ch = new King(black);
-        board[4][7].setChessMan(ch);
+    chessPiece *ch = new King(white);
+    board[4][0].setChessMan(ch);
+    ch = new King(black);
+    board[4][7].setChessMan(ch);
 }
 
 void chessBoard::setQueens() {
-        chessPiece *ch = new Queen(white);
-        board[3][0].setChessMan(ch);
-        ch = new Queen(black);
-        board[3][7].setChessMan(ch);
+    chessPiece *ch = new Queen(white);
+    board[3][0].setChessMan(ch);
+    ch = new Queen(black);
+    board[3][7].setChessMan(ch);
 }
 
 void chessBoard::setBishops() {
@@ -103,10 +103,10 @@ void chessBoard::move(vertexes from, vertexes to) {
     board[from.X][from.Y].setChessMan(nullptr);
 }
 
-chessBoard& chessBoard::operator=(chessBoard &primary) {
+chessBoard &chessBoard::operator=(chessBoard &primary) {
     for (int i = 7; i >= 0; i--) {
         for (int j = 0; j < 8; j++) {
-            board[j][i].setChessMan(primary.getBoard(j,i).getChessMan());
+            board[j][i].setChessMan(primary.getBoard(j, i).getChessMan());
         }
     }
     return *this;

@@ -17,8 +17,10 @@ class Field {
     chessPiece *chessMan = nullptr;
 
 public:
-    chessPiece* getChessMan();
-    void setChessMan(chessPiece* sth );
+    chessPiece *getChessMan();
+
+    void setChessMan(chessPiece *sth);
+
     bool isEmpty();
 
 };

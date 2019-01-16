@@ -22,7 +22,7 @@ Test::Test() {
     movingTest();
     checkMoveTest();
     checkTest();
-    cout<<"so everything is ok";
+    cout << "so everything is ok";
 }
 
 void Test::creatingBoardTest() {
@@ -36,7 +36,7 @@ void Test::creatingBoardTest() {
             else cout << "error in creating board";
 
         }
-    cout << "CREATING board is ok"<<endl;
+    cout << "CREATING board is ok" << endl;
 }
 
 
@@ -45,12 +45,12 @@ void Test::settingBoardTest() {
     ch->setBoard();
     settingEmptyFieldsTest(ch);
     settingPawnsTest(ch);
-    settingOnePiecesTest(ch,"King",4);
-    settingOnePiecesTest(ch,"Queen",3);
-    settingTwoPiecesTest(ch,"Bishop",2,3);
-    settingTwoPiecesTest(ch,"Knight",1,5);
-    settingTwoPiecesTest(ch,"Rook",0,7);
-    cout<<"so SETTING is OK"<<endl;
+    settingOnePiecesTest(ch, "King", 4);
+    settingOnePiecesTest(ch, "Queen", 3);
+    settingTwoPiecesTest(ch, "Bishop", 2, 3);
+    settingTwoPiecesTest(ch, "Knight", 1, 5);
+    settingTwoPiecesTest(ch, "Rook", 0, 7);
+    cout << "so SETTING is OK" << endl;
 }
 
 void Test::settingEmptyFieldsTest(chessBoard *testPtr) {
@@ -73,9 +73,7 @@ void Test::settingPawnsTest(chessBoard *testPtr) {
                     if (testPtr->getBoard(j, i).getChessMan()->getColour() == white)
                         continue;
                     else cout << "problem with Pawns white colour";
-                }
-
-                else {
+                } else {
                     if (testPtr->getBoard(j, i).getChessMan()->getColour() == black)
                         continue;
                     else cout << "problem with Pawns black colour";
@@ -85,7 +83,7 @@ void Test::settingPawnsTest(chessBoard *testPtr) {
             } else cout << "problem with Pawns position";
         }
     }
-    cout << "Pawn setting is ok"<<endl;
+    cout << "Pawn setting is ok" << endl;
 }
 
 /*checking start position for pieces which are one of each colour
@@ -99,20 +97,17 @@ void Test::settingOnePiecesTest(chessBoard *testPtr, string Name, int X) {
                 if (testPtr->getBoard(X, i).getChessMan()->getColour() == white)
                     continue;
                 else cout << "problem with" << Name << "white colour";
-            }
-
-            else {
+            } else {
                 if (testPtr->getBoard(X, i).getChessMan()->getColour() == black)
                     continue;
                 else cout << "problem with" << Name << "black colour";
             }
 
-        }
-
-        else cout << "problem with" << Name << " position";
+        } else cout << "problem with" << Name << " position";
     }
-    cout<<Name<<" setting is ok"<< endl;
+    cout << Name << " setting is ok" << endl;
 }
+
 /*checking start position for pieces which are two of each colour
  * difference is difference between two chess pieces of each colour
  * first is first number from vertexes
@@ -120,47 +115,45 @@ void Test::settingOnePiecesTest(chessBoard *testPtr, string Name, int X) {
 void Test::settingTwoPiecesTest(chessBoard *testPtr, string Name, int first, int difference) {
 
     for (int i = 0; i < 8; i += 7) {
-        for (int j = first ; j < 8; j += difference) {
+        for (int j = first; j < 8; j += difference) {
             if (testPtr->getBoard(j, i).getChessMan()->getName() == Name) {
-                if (i == 0 ) {
+                if (i == 0) {
                     if (testPtr->getBoard(j, i).getChessMan()->getColour() == white)
                         continue;
                     else cout << "problem with" << Name << " white colour";
-                }
-
-                else {
+                } else {
                     if (testPtr->getBoard(j, i).getChessMan()->getColour() == black)
                         continue;
                     else cout << "problem with " << Name << " black colour";
                 }
 
+            } else {
+                cout << "problem with " << Name << " position";
+                cout << testPtr->getBoard(j, i).getChessMan()->getName() << "dupa dupa" << endl;
             }
-
-            else {cout << "problem with " << Name << " position";
-            cout<<testPtr->getBoard(j,i).getChessMan()->getName()<<"dupa dupa"<<endl;}
         }
     }
-    cout <<Name<<"  setting is ok"<<endl;
+    cout << Name << "  setting is ok" << endl;
 }
 
 
 void Test::movingTest() {
     chessBoard ch;
     ch.setBoard();
-    vertexes from,to;
+    vertexes from, to;
     from.X = 0;
     from.Y = 0;
     to.X = 4;
     to.Y = 4;
-    ch.move(from,to);
-    if(ch.getBoard(from.X,from.Y).getChessMan() != nullptr)
-        cout<<"problem with field which chespiece go from";
+    ch.move(from, to);
+    if (ch.getBoard(from.X, from.Y).getChessMan() != nullptr)
+        cout << "problem with field which chespiece go from";
 
-    if(ch.getBoard(to.X,to.Y).getChessMan()->getName() != "Rook" &&
-    ch.getBoard(to.X,to.Y).getChessMan()->getColour() != white)
-        cout<<"problem with field which chespiece go to";
+    if (ch.getBoard(to.X, to.Y).getChessMan()->getName() != "Rook" &&
+        ch.getBoard(to.X, to.Y).getChessMan()->getColour() != white)
+        cout << "problem with field which chespiece go to";
 
-    cout<<"MOVING is  ok"<<endl;
+    cout << "MOVING is  ok" << endl;
 }
 
 
@@ -170,16 +163,16 @@ void Test::checkMoveTest() {
     ch.setBoard();
     rulesChecker r;
 
-    v = r.checkMove(0,0,&ch);
-    if(!v.empty())
-        cout<<"problem with checking move (1";
+    v = r.checkMove(0, 0, &ch);
+    if (!v.empty())
+        cout << "problem with checking move (1";
 
-    v = r.checkMove(6,0,&ch);
+    v = r.checkMove(6, 0, &ch);
 
-    if(v.size() != 2)
-        cout<<"problem with checking move (2";
+    if (v.size() != 2)
+        cout << "problem with checking move (2";
 
-    cout<<"checking move is ok"<<endl;
+    cout << "checking move is ok" << endl;
 
 }
 
@@ -187,23 +180,23 @@ void Test::checkTest() {
 
     chessBoard ch;
     ch.setBoard();
-    vertexes from,to;
+    vertexes from, to;
 
     from.X = 4;
     from.Y = 0;
     to.X = 3;
     to.Y = 5;
 
-    ch.move(from,to);
+    ch.move(from, to);
 
     gameStatus g;
 
     g.loadBoard(&ch);
 
-    if(!g.isCheck(1))
-        cout<<"error in checking check";
+    if (!g.isCheck(1))
+        cout << "error in checking check";
 
-    cout<<"checking check is ok"<<endl;
+    cout << "checking check is ok" << endl;
 
 }
 

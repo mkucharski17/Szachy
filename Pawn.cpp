@@ -6,5 +6,5 @@
 
 Pawn::Pawn(int colour) {
     Name = "Pawn";
-    Colour  = colour;
+    Colour = colour;
 }

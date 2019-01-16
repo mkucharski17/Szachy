@@ -4,7 +4,7 @@
 
 #include "Bishop.h"
 
-Bishop::Bishop(int colour): chessPiece() {
+Bishop::Bishop(int colour) : chessPiece() {
     Name = "Bishop";
-    Colour  = colour;
+    Colour = colour;
 }

@@ -14,6 +14,7 @@ struct vertexes {
     int X;
     int Y;
 };
+
 /*following class represents chessboard
  * */
 class chessBoard {
@@ -43,7 +44,7 @@ public:
 
     void show();
 
-    chessBoard& operator=(chessBoard& primaryBoard);
+    chessBoard &operator=(chessBoard &primaryBoard);
 
     bool inBoard(vertexes v);
 

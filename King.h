@@ -8,7 +8,7 @@
 
 #include "chessPiece.h"
 
-class King: public chessPiece {
+class King : public chessPiece {
 
 public:
     King(int colour);

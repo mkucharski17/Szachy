@@ -7,7 +7,7 @@
 #include "gameStatus.h"
 
 int main() {
-Test t;
+    Test t;
 
     return 0;
 }

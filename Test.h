@@ -30,7 +30,6 @@ class Test {
 
 public:
     Test();
-
 };
 
 
