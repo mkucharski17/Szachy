@@ -47,6 +47,11 @@ public:
     chessBoard& operator=(chessBoard& primaryBoard);
 
 
+    bool inBoard(vertexes v);
+
+    bool isAttack(vertexes v, int colour);
+
+
 };
 
 

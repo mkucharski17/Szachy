@@ -121,6 +121,28 @@ void chessBoard::load(chessBoard &source) {
 }
 
 
+/*
+ * Method which check if vertexes are in chessboard
+ * */
+bool chessBoard::inBoard(vertexes v) {
+    if (v.X < 0 || v.X > 7 || v.Y < 0 || v.Y > 7)
+        return false;
+
+    return true;
+}
+
+/*
+ * Method which check if move is an attack
+ * */
+bool chessBoard::isAttack(vertexes v, int colour) {
+    if (board[v.X][v.Y].getChessMan() != nullptr)
+        if (board[v.X][v.Y].getChessMan()->getColour() != colour)
+            return true;
+
+    return false;
+}
+
+
 
 
 

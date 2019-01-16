@@ -98,7 +98,7 @@ void rulesChecker::checkKnightMove(vector<vertexes> &possibilities, int x, int y
         for (int j = -1; j < 2; j += 2) {
             temp.X = x + i;
             temp.Y = y + j;
-            if (inBoard(temp))
+            if (Board->inBoard(temp))
                 possibilities.push_back(temp);
         }
 
@@ -106,7 +106,7 @@ void rulesChecker::checkKnightMove(vector<vertexes> &possibilities, int x, int y
         for (int j = -2; j < 3; j += 4) {
             temp.X = x + i;
             temp.Y = y + j;
-            if (inBoard(temp))
+            if (Board->inBoard(temp))
                 possibilities.push_back(temp);
 
         }
@@ -122,7 +122,7 @@ void rulesChecker::checkKingMove(vector<vertexes> &possibilities, int x, int y) 
                 temp.X = x + i;
                 temp.Y = y + j;
 
-                if (inBoard(temp))
+                if (Board->inBoard(temp))
                     possibilities.push_back(temp);
             }
 
@@ -164,7 +164,7 @@ bool rulesChecker::canAddToPossibilities(vertexes temp) {
     if (Board->getBoard(temp.X, temp.Y).getChessMan() == nullptr)
         return true;
     else {
-        if (isAttack(temp, Board->getBoard(temp.X, temp.Y).getChessMan()->getColour()))
+        if (Board->isAttack(temp, Board->getBoard(temp.X, temp.Y).getChessMan()->getColour()))
             return true;
     }
     return false;
@@ -262,25 +262,5 @@ void rulesChecker::checkUpLeft(vector<vertexes> &possibilities, int x, int y) {
     }
 }
 
-/*
- * Method which check if vertexes are in chessboard
- * */
-bool rulesChecker::inBoard(vertexes v) {
-    if (v.X < 0 || v.X > 7 || v.Y < 0 || v.Y > 7)
-        return false;
-
-    return true;
-}
-
-/*
- * Method which check if move is an attack
- * */
-bool rulesChecker::isAttack(vertexes v, int colour) {
-    if (Board->getBoard(v.X, v.Y).getChessMan() != nullptr)
-        if (Board->getBoard(v.X, v.Y).getChessMan()->getColour() != colour)
-            return true;
-
-    return false;
-}
 
 

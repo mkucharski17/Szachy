@@ -42,9 +42,6 @@ class rulesChecker {
 
     bool canAddToPossibilities(vertexes temp);
 
-    bool inBoard(vertexes v);
-
-    bool isAttack(vertexes v, int colour);
 
 
 public:
