@@ -4,8 +4,8 @@
 
 #include "Knight.h"
 
-Knight::Knight(int colour){
+Knight::Knight(int colour) {
     Name = "Knight";
-    Colour  = colour;
+    Colour = colour;
 
 }

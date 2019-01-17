@@ -10,14 +10,13 @@
 using namespace std;
 
 
-
 class chessPiece {
 protected:
     string Name;
     int Colour; //0 - White    1 - Black
 
 public:
-    virtual void move() = 0;
+    chessPiece() = default;
 
     string &getName();
 

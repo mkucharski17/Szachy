@@ -3,7 +3,8 @@
 //
 
 #include "King.h"
-King::King(int  colour) {
+
+King::King(int colour) {
     Name = "King";
-    Colour  = colour;
+    Colour = colour;
 }

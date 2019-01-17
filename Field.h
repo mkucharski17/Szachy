@@ -6,17 +6,22 @@
 #define LAB3_FIELD_H
 
 #include <string>
+#include "chessPiece.h"
 
 using namespace std;
 
-
-
-
+/*
+ * class Field represent one from 64 fields which are on the chessboard
+ * */
 class Field {
-    string chesPieceName = "empty";
+    chessPiece *chessMan = nullptr;
 
 public:
-    string & getChessPieceName();
+    chessPiece *getChessMan();
+
+    void setChessMan(chessPiece *sth);
+
+    bool isEmpty();
 
 };
 

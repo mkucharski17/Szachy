@@ -6,5 +6,5 @@
 
 Rook::Rook(int colour) {
     Name = "Rook";
-    Colour  = colour;
+    Colour = colour;
 }

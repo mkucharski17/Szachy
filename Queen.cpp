@@ -6,5 +6,5 @@
 
 Queen::Queen(int colour) {
     Name = "Queen";
-    Colour  = colour;
+    Colour = colour;
 }

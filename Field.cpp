@@ -4,6 +4,18 @@
 
 #include "Field.h"
 
-string & Field::getChessPieceName() {
-    return chesPieceName;
+chessPiece* Field::getChessMan() {
+    return chessMan;
+}
+
+
+void Field::setChessMan(chessPiece *sth) {
+    chessMan = sth;
+}
+
+bool Field::isEmpty() {
+        if(chessMan == nullptr)
+            return true;
+
+        return false;
 }

@@ -8,10 +8,11 @@
 
 #include "chessPiece.h"
 
-class Bishop: public chessPiece {
+class Bishop : public chessPiece {
 
 public:
     Bishop(int colour);
+
 
 };
 
